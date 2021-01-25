@@ -1,0 +1,53 @@
+データベース構成
+
+---------------------------------------------------
+表名：
+THREAD_TABLE
+
+列名：
+T_NUMBER 	NUMBER
+		(S_ORD_THREAD_TABLE)	
+
+USERNAME	VARCHAR2(30)
+	 	DEFAULT 'NONAME'
+	 	NOT NULL
+
+CONTENT		VARCHAR2(30)
+		NOT NULL
+
+POSTING_TIME	DATE
+		DEFAULT SYSDATE
+※入力禁止
+
+
+--------------------------------------------------
+
+★順序
+
+表名：S_ORD_THREAD_TABLE
+
+START WITH 1
+INCREMENT BY 1
+
+--------------------------------------------------
+
+CREATE SEQUENCE S_ORD_THREAD_TABLE
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TABLE THREAD_TABLE
+(
+	T_NUMBER NUMBER(20),
+	USERNAME VARCHAR2(10) DEFAULT 'NONAME' NOT NULL,
+	CONTENT VARCHAR2(50) NOT NULL,
+	POSTING_TIME DATE DEFAULT SYSDATE
+);
+
+INSERT INTO THREAD_TABLE(T_NUMBER, USERNAME, CONTENT) VALUES
+(S_ORD_THREAD_TABLE.NEXTVAL, '&username', '&content');
+
+
+
+
+
+	  

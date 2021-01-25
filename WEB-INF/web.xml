@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+	
+	<servlet>
+		<servlet-name>input</servlet-name>
+		<jsp-file>/input.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>input</servlet-name>
+		<url-pattern>/input</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>adduser</servlet-name>
+		<servlet-class>AddUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adduser</servlet-name>
+		<url-pattern>/adduser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>resultlist</servlet-name>
+		<jsp-file>/resultlist.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>resultlist</servlet-name>
+		<url-pattern>/resultlist</url-pattern>
+	</servlet-mapping>
+
+</web-app>
