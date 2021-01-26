@@ -26,7 +26,7 @@
 		</c:forEach>
     </table>
     
-    <button type="button" onclick="location.href='http://localhost:8080/board5/input'">–ß‚é</button>
+    <button type="button" onclick="location.href='http://localhost:8080/Board/input'">–ß‚é</button>
 	
 </body>
 </html>
