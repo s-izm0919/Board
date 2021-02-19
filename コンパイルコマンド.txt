@@ -1,5 +1,0 @@
-ojdbc7.jarはtomcat8.5内のlibフォルダに入れてください。
-他のところからも参照できるはずですが、そうしないとうまくjarファイルを参照できないバグが残っています。
-なんかtomcatにエラーメッセージっぽいものがでますが、気にしなくていいです。
-
-set classpath=.;C:\tomcat8.5\lib\servlet-api.jar;C:\tomcat8.5\lib\ojdbc7.jar
