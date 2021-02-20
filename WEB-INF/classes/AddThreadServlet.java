@@ -32,7 +32,9 @@ public class AddThreadServlet extends HttpServlet {
 		if(name==""){
 			name=new String("NONAME");
 		}
-		String content=req.getParameter("content");
+		String _content=req.getParameter("content");
+		String content=_content.replaceAll("\n", "<br/>");
+		
 		String title=req.getParameter("title");
 		String question= req.getParameter("question");
 		String choice1 = req.getParameter("choice1");
