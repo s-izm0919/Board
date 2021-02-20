@@ -72,6 +72,7 @@ public class OracleDBAccess{
 				String question=rs.getString(6);	//6列目のデータを取得
 				String choice1=rs.getString(7);	//7列目のデータを取得
 				String choice2=rs.getString(8);	//8列目のデータを取得
+
 				//UserBeanのsetterを利用
 				bean.setId(id);
                 bean.setName(name);
@@ -213,3 +214,5 @@ public class OracleDBAccess{
 
     }
 }
+
+
