@@ -48,14 +48,16 @@ return false;
 
 <header>
 
-<h1 id="logo"><a href="postthread.jsp"><img src="images/logo1.png" alt="Sample Site"></a></h1>
+<h1 id="logo"><a href="postthread"><img src="images/logo1.png" alt="投稿画面"></a></h1>
 <!--PC用（801px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
-<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="当サイトについて"></a></li>
-<li id="menu2"><a href="#gallery"><img src="images/menu_gallery.png" alt="ギャラリー"></a></li>
+<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="閲覧画面"></a></li>
+<li id="menu2"><a href="index"><img src="images/menu_about.png" alt="トップに戻る"></a></li>
+<!--
 <li id="menu3"><a href="#link"><img src="images/menu_link.png" alt="リンク"></a></li>
 <li id="menu4"><a href="#"><img src="images/menu_instagram.png" alt="インスタグラム"></a></li>
+-->
 </ul>
 </nav>
 
@@ -64,7 +66,7 @@ return false;
 
 <section>
     
-<h2>Read Me<span></span></h2>
+<h2>About Me<span></span></h2>
 	
 </section>  
 
