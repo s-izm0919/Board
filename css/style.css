@@ -165,7 +165,8 @@ header #logo a:hover, #menubar a:hover {
 }
 /*h3見出し*/
 .contents h3 {
-	margin-bottom: 20px;	/*下に空ける余白*/
+	margin-top: 50px;
+	margin-bottom: 50px;	/*下に空ける余白*/
 	letter-spacing: 0.1em;	/*文字間隔を広くとる設定*/
 	background: #fff;		/*背景色（古いブラウザ用）*/
 	background: rgba(255,255,255,0.3);	/*255,255,255は白の事で0.3は透明度30%の事。*/
@@ -266,6 +267,37 @@ footer .pr {display: block;}
 	vertical-align: text-top;
 }
 
+/*スレッド一覧の表示方法
+--------------------------------------------------------------------------*/
+.thread_table{
+	background: #c6ccd3;
+	border: #333;
+	border-radius: 3%;
+}
+
+.th_title{
+	font-size: 20px;
+	color: black;
+}
+
+.th_content{
+	display: block;
+	overflow-wrap: break-word;
+	word-break: break-all;
+	margin:1% 4%;
+	border-radius: 5%;
+}
+
+.th_question{
+	color: red;
+}
+
+.res_thread{
+	border: #333;
+	border-radius: 3%;
+}
+
+
 /*その他
 ---------------------------------------------------------------------------*/
 .look {background: #c3b5a2;background: rgba(0,0,0,0.1);padding: 5px 10px;border-radius: 4px;}
@@ -291,6 +323,7 @@ ul.disc {padding: 0em 25px 15px;list-style: disc;}
 
 
 
+
 /*画面幅800px以下の設定
 ------------------------------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width:800px){
@@ -304,7 +337,6 @@ body.s-n #sub,body.s-n #footermenu,.m-n {display: none;}
 .fr {float: none;}
 
 }
-
 
 
 /*画面幅480px以下の設定
@@ -414,3 +446,4 @@ header #logo img {
 .pc {display:none;}
 
 }
+

@@ -51,14 +51,16 @@ return false;
 
 <header >
 		
-<h1 id="logo"><a href="postthread.jsp"><img src="images/logo1.png" alt="Sample Site"></a></h1>
+<h1 id="logo"><a href="postthread"><img src="images/logo1.png" alt="投稿画面"></a></h1>
 <!--PC用（801px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
-<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="当サイトについて"></a></li>
-<li id="menu2"><a href="返答文登録.html"><img src="images/menu_gallery.png" alt="ギャラリー"></a></li>
+<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="閲覧画面"></a></li>
+<li id="menu2"><a href="index"><img src="images/menu_about.png" alt="トップに戻る"></a></li>
+<!--
 <li id="menu3"><a href="#link"><img src="images/menu_link.png" alt="リンク"></a></li>
 <li id="menu4"><a href="#"><img src="images/menu_instagram.png" alt="インスタグラム"></a></li>
+-->
 </ul>
 </nav>
 </header>
@@ -67,8 +69,8 @@ return false;
 
 <section>
 
-<h2>Read Me</h2>
-<h3>投稿文一覧</h3>
+<h2>Thread List</h2>
+	<h3>投稿文一覧</h3>
     <form name="sort">
 	<select name="sort1" onChange="if(document.sort.sort1.value){location.href=document.sort.sort1.value;}">
 		<option >◆並べ替えはこちら◆</option>
@@ -77,15 +79,21 @@ return false;
 		<option value="addthread?sort=3">投票の多い順</option>
 	</select> 
 	</form>
+	<br>
 
-	<h1>投稿一覧</h1>
-	<table border="1">
 		<c:forEach var="data" items="${data}">
-			<tr><td>${data.number}</td><td>${data.name}</td><td>${data.time}</td></tr>
-			<tr><td><a href="resthread?id=${data.id}">${data.title}</a></td><td>${data.content}</td></tr>
-			<tr><td>${data.question}</td><td>${data.choice1}</td><td>${data.choice2}</td></tr>
+		<div class="thread_table">
+			<a class="th_title" href="resthread?id=${data.id}"><c:out value="${data.title}"/></a><br>
+			<c:out value="${data.number}"/>&emsp;<c:out value="${data.name}"/>&emsp;<c:out value="${data.time}"/><br>
+			<div class="th_content">
+			<c:out value="${data.content}" escapeXml="false"/>
+			</div>
+			投稿者の質問：<c:out value="${data.question}"/><br>
+			選択１：<c:out value="${data.choice1}"/>&emsp;&emsp;選択２：<c:out value="${data.choice2}"/><br>
+		</div>
+		<br>
 		</c:forEach>
-    </table>
+
 
 	<table>
 	<tr>
@@ -97,6 +105,7 @@ return false;
 	<tr>
 	<table>
 
+</section>
 
 </div>
 <!--/container-->

@@ -45,10 +45,47 @@ return false;
 });
 </script>
 
-<script>
-function getRandom(){
-    return Math.Random();
-}
+<script type="text/javascript"> 
+	function lengthcheck(){
+		
+		var flag = 0;
+		
+		if(document.form1.rename.value.length > 5){ // 名前の文字数のチェック
+		
+			flag = 1;
+
+            window.alert("名前は5文字以内で入力してください");
+		
+		}
+		else if(document.form1.recontent.value.length > 500){ // 返答内容の文字数のチェック
+		
+			flag = 1;
+
+            window.alert("返答内容は5文字以内で入力してください");
+		}
+		
+		// 設定終了
+		if(flag){
+
+		return false; // 送信を中止
+	
+		}else{
+
+         getRandom();
+			
+        return true; // 送信を実行
+
+		}
+	
+	}
+
+</script>
+
+<script type="text/javascript">
+    function getRandom(){
+        let num = Math.floor(Math.random()*10000)+1;
+        document.getElementById('formnumber').value = num;
+    }
 </script>
 </head>
 
@@ -57,14 +94,16 @@ function getRandom(){
 <body>
 
 <header >
-<h1 id="logo"><a href="postthread.jsp"><img src="images/logo1.png" alt="Sample Site"></a></h1>
+<h1 id="logo"><a href="postthread"><img src="images/logo1.png" alt="投稿画面"></a></h1>
 <!--PC用（801px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
-<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="当サイトについて"></a></li>
-<li id="menu2"><a href="#gallery"><img src="images/menu_gallery.png" alt="ギャラリー"></a></li>
+<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="閲覧画面"></a></li>
+<li id="menu2"><a href="index"><img src="images/menu_about.png" alt="トップに戻る"></a></li>
+<!--
 <li id="menu3"><a href="#link"><img src="images/menu_link.png" alt="リンク"></a></li>
 <li id="menu4"><a href="#"><img src="images/menu_instagram.png" alt="インスタグラム"></a></li>
+-->
     
 </ul>
 </nav>
@@ -72,21 +111,26 @@ function getRandom(){
         
 <div class="contents bg2">
  <section>
-<h2>Read Me</h2>        
+<h2>Thread Response</h2>     
 
-<h3>投稿文</h3>
-   <table border="1">
-        <tr><td>${data.name}</td><td>${data.time}</td></tr>
-	    <tr><td>${data.title}</td><td>${data.content}</td></tr>
-	    <tr><td>${data.question}</td><td>${data.choice1}</td><td>${data.choice2}</td></tr>
-	</table>
-
-	<h1>集計</h1>
+<h3>投稿されたスレッド</h3>
+   <div class="Res_thread">
+			<div class="th_title"><c:out value="${data.title}"/></div>
+			<c:out value="${data.number}"/>&emsp;<c:out value="${data.name}"/>&emsp;<c:out value="${data.time}"/><br>
+			<div class="th_content">
+			<c:out value="${data.content}" escapeXml="false"/>
+			</div>
+			投稿者の質問：<c:out value="${data.question}"/><br>
+			選択１：<c:out value="${data.choice1}"/>&emsp;&emsp;選択２：<c:out value="${data.choice2}"/><br>
+	</div>
+<h3>現在の集計結果</h3>
+    投稿された質問：${data.question}<br>
 	${data.choice1}：${agreement}<br>
     ${data.choice2}：${disagreement}<br>
 	<div style="width: 300px;">
     <canvas id="chart" width="150" height="150"></canvas>
     </div>
+    <br>
 
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -134,28 +178,35 @@ function getRandom(){
         });
     </script>
 
-    <h1>新規書き込み</h1>
-	<form method='post' action='resthread'>
+    <h3>スレッドへの返信を投稿する</h3>
+	<form method='post' action='resthread' name="form1" onSubmit="return lengthcheck()">
+
+    <input id='formnumber' type='hidden' name='number' value="">
+    
     <input type='hidden' name='reid' value='${data.id}'>
 	ユーザー名:<br>
 	<input type='text' name='rename' placeholder="NONAME"><br>
 	投稿文：<br>
 	<textarea name='recontent' placeholder="こちらに投稿文を記入" cols="50" rows="5"></textarea><br>
-	どちらに賛成か？:<br>
+	あなたの意見は？:<br>
 	<input type='radio' name='revoting' value='1' checked="checked">${data.choice1}<br>
 	<input type='radio' name='revoting' value='2' >${data.choice2}<br>
 	<input type='submit' value='登録'>
 	</form>
+    <br>
 
-    <h1>投稿一覧</h1>
-	<table border="1">
-		<c:forEach var="resdata" items="${resdatabase}">
-			<tr><td>${resdata.number}</td><td>${resdata.name}</td><td>${resdata.time}</td></tr>
-			<tr><td colspan="3">${resdata.content}</td></tr>
-			<tr><td colspan="3">${resdata.voting == "1" ? data.choice1:data.choice2}</td></tr>
-			<br>
-		</c:forEach>
-    </table>
+    <h3>投稿された返信スレッド</h3>
+
+    <c:forEach var="resdata" items="${resdatabase}">
+        <c:out value="${resdata.number}"/>&emsp;<c:out value="${resdata.name}"/>&emsp;<c:out value="${resdata.time}"/><br>
+        <div class="th_content">
+			<c:out value="${resdata.content}" escapeXml="false"/>
+		</div>
+        返答者の意見：<c:out value='${resdata.voting == "1" ? data.choice1:data.choice2}'/><br>
+    </c:forEach>
+
+
+
 
 </section>
         

@@ -26,12 +26,16 @@ public class ResThreadServlet extends HttpServlet {
 
 	String id = null;
 
+	private String check="";
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		//POST要求によって送信された文字列をクライアントで
 		//エンコードしたときの文字コードを指定する
 		//これを指定しないと文字化けする可能性がある
 		req.setCharacterEncoding("Windows-31J");
+
+		String number = req.getParameter("number");
 
 		id = req.getParameter("reid");
 
@@ -44,18 +48,24 @@ public class ResThreadServlet extends HttpServlet {
 		}
 		
 		
-		String content = req.getParameter("recontent");
+		String _content=req.getParameter("recontent");
+		String content=_content.replaceAll("\n", "<br>");
 
 		if(content==""){
 			content=new String("投稿文はありません。");
 		}
 		String voting = req.getParameter("revoting");
 
-		CreateSQL cre = new CreateSQL();
-		String insert_sql = cre.insertResThread(id, name, content, voting);
+		
+		if(check.equals(number)){
 
-		OracleDBAccess odba = new OracleDBAccess();
-		odba.insertDB(insert_sql);
+		}else{
+
+			CreateSQL cre = new CreateSQL();
+			String insert_sql = cre.insertResThread(id, name, content, voting);
+			OracleDBAccess odba = new OracleDBAccess();
+			odba.insertDB(insert_sql);
+			check=number;}
 
 		doGet(req, res);
 	}
