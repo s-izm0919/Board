@@ -205,6 +205,12 @@ return false;
         •Ô“šÒ‚ÌˆÓŒ©F<c:out value='${resdata.voting == "1" ? data.choice1:data.choice2}'/><br>
     </c:forEach>
 
+    <c:forEach var="page" items="${page}">
+			<td>
+			<a href="resthread?page=${page}&sort=${sort}">${page}</a>
+			</td>
+	</c:forEach>
+
 
 
 

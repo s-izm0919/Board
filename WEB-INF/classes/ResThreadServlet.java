@@ -74,6 +74,11 @@ public class ResThreadServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		req.setCharacterEncoding("Windows-31J");
+
+		String sort = req.getParameter("sort");
+		if(sort == null){
+			sort = "1";
+		}
         
         if(id == null){		
 			id = req.getParameter("id");
@@ -98,6 +103,40 @@ public class ResThreadServlet extends HttpServlet {
 
 		long agreement = stream1.filter(number -> number == 1).count();
 		long disagreement = stream2.filter(number -> number == 2).count();
+
+		int pages = resdatabase.size()/10;
+		if(resdatabase.size() %10 !=0){
+			pages +=1;
+		}
+
+		int allpages[] = new int[pages];
+		for(int i=0;i<pages;i++){
+			allpages[i] = i+1;
+		}
+
+		ArrayList<ResThreadBean> array = new ArrayList<ResThreadBean>();
+
+		int page;
+		String _page = req.getParameter("page");
+		if(_page == null){
+			page = 1;
+		}else{
+			page = Integer.parseInt(_page);
+		}
+
+		int time = 10*(page-1);
+
+		for(int i=0;i<resdatabase.size();i++){
+			if(i>=time){
+				ResThreadBean resbean = resdatabase.get(i);
+				array.add(resbean);
+			}
+
+			if(array.size()==10){
+				break;
+			}
+		}
+
 
 		req.setAttribute("agreement", agreement);
 		req.setAttribute("disagreement", disagreement);
