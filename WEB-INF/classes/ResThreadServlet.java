@@ -35,7 +35,7 @@ public class ResThreadServlet extends HttpServlet {
 		//‚±‚ê‚ğw’è‚µ‚È‚¢‚Æ•¶š‰»‚¯‚·‚é‰Â”\«‚ª‚ ‚é
 		req.setCharacterEncoding("Windows-31J");
 
-		String number = req.getParameter("number");
+		String checknumber = req.getParameter("checknumber");
 
 		id = req.getParameter("reid");
 
@@ -57,7 +57,7 @@ public class ResThreadServlet extends HttpServlet {
 		String voting = req.getParameter("revoting");
 
 		
-		if(check.equals(number)){
+		if(check.equals(checknumber)){
 
 		}else{
 
@@ -65,7 +65,7 @@ public class ResThreadServlet extends HttpServlet {
 			String insert_sql = cre.insertResThread(id, name, content, voting);
 			OracleDBAccess odba = new OracleDBAccess();
 			odba.insertDB(insert_sql);
-			check=number;}
+			check=checknumber;}
 
 		doGet(req, res);
 	}

@@ -92,6 +92,8 @@ return false;
 					
 					return false;
 				}else{
+
+				getRandom();
 	
 				return true; // 送信を実行
 
@@ -153,7 +155,14 @@ return false;
 	
 		}
 	}
-</script>        
+</script>  
+
+<script type="text/javascript">
+    function getRandom(){
+        let num = Math.floor(Math.random()*10000)+1;
+        document.getElementById('formnumber').value = num;
+    }
+</script>
 	
 </head>
 
@@ -185,6 +194,7 @@ return false;
 
 <h3>投稿登録</h3>
 	<form method='post' action='addthread' name="form1" onSubmit="return nullcheck()">
+	<input id="formnumber" type="hidden" name="checknumber" value="">
 	名前:<br>
 	<input type='text' name='name' placeholder="NONAME"><br>
 	タイトル:<br>

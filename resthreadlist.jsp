@@ -181,7 +181,7 @@ return false;
     <h3>スレッドへの返信を投稿する</h3>
 	<form method='post' action='resthread' name="form1" onSubmit="return lengthcheck()">
 
-    <input id='formnumber' type='hidden' name='number' value="">
+    <input id='formnumber' type='hidden' name='checknumber' value="">
     
     <input type='hidden' name='reid' value='${data.id}'>
 	ユーザー名:<br>
