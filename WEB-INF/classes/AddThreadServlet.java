@@ -25,6 +25,8 @@ public class AddThreadServlet extends HttpServlet {
 		//エンコードしたときの文字コードを指定する
 		//これを指定しないと文字化けする可能性がある
 		req.setCharacterEncoding("Windows-31J");
+
+		String checknumber = req.getParameter("checknumber");
 		
 		//POST要求によって送信されたパラメータを取得する
 		String name=req.getParameter("name");
@@ -40,14 +42,14 @@ public class AddThreadServlet extends HttpServlet {
 		String choice1 = req.getParameter("choice1");
 		String choice2 = req.getParameter("choice2");
 
-		if(check.equals(question)){
+		if(check.equals(checknumber)){
 		}
 		else{
 		CreateSQL cre = new CreateSQL();
 		String insert_sql = cre.insertThread(name, title, content, question, choice1, choice2);
 		OracleDBAccess odba = new OracleDBAccess();
 		odba.insertDB(insert_sql);
-		check=question;
+		check=checknumber;
 		}
 
 		doGet(req, res);
