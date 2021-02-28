@@ -144,7 +144,11 @@ public class ResThreadServlet extends HttpServlet {
 		//HttpServletRequestの実装クラスのインスタンスに
 		//usersという名前でデータを登録する
 		req.setAttribute("data",bean);
-		req.setAttribute("resdatabase",resdatabase);
+		req.setAttribute("resdata",array);
+		req.setAttribute("id",id);
+		req.setAttribute("page",allpages);
+
+		req.setAttribute("sort",sort);
 
 		id = null;
 		

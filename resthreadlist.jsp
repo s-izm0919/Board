@@ -197,7 +197,7 @@ return false;
 
     <h3>投稿された返信スレッド</h3>
 
-    <c:forEach var="resdata" items="${resdatabase}">
+    <c:forEach var="resdata" items="${resdata}">
         <c:out value="${resdata.number}"/>&emsp;<c:out value="${resdata.name}"/>&emsp;<c:out value="${resdata.time}"/><br>
         <div class="th_content">
 			<c:out value="${resdata.content}" escapeXml="false"/>
@@ -207,7 +207,7 @@ return false;
 
     <c:forEach var="page" items="${page}">
 			<td>
-			<a href="resthread?page=${page}&sort=${sort}">${page}</a>
+			<a href="resthread?page=${page}&id=${id}">${page}</a>
 			</td>
 	</c:forEach>
 

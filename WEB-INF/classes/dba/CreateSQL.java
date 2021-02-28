@@ -21,7 +21,7 @@ public class CreateSQL{
     }
 
     public String selectResAll(String th_id){
-        String sql = "SELECT * FROM BOARD_RESPONSE WHERE th_id = "+th_id+" ORDER BY re_time";
+        String sql = "SELECT * FROM BOARD_RESPONSE WHERE th_id = "+th_id+" ORDER BY re_time DESC";
         return sql;
     }
 
