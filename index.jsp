@@ -67,6 +67,39 @@ return false;
 <section>
     
 <h2>About Me<span></span></h2>
+
+<div class="about_me">
+この掲示板は、あなたがいま抱えている<br>
+
+<span style="color:red;font-size:140%;">
+
+「どちらがいいか迷ってしまう。」<br>
+
+「迷っているけど決めることができない」<br>
+
+</span>
+
+といった悩みを解決してくれます。<br><br>
+
+使い方は簡単です。<br>
+
+あなたがいまどちらにしようか悩んでいる２つの選択を<br>
+
+相談内容と一緒に書き込むだけで<br>
+
+多くの人が、その悩みに対してアドバイスをしてくれるでしょう。<br>
+
+そして、あなたにどちらの選択をすればいいかを教えてくれます。<br>
+
+難しく考える必要はありません。まずは相談してみましょう。<br><br>
+
+<a href="postthread"><img src="images/post_button.gif"></a>
+
+<br><br>
+
+<a href="addthread"><img src="images/list_button.gif"></a>
+
+</div>
 	
 </section>  
 

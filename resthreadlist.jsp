@@ -50,18 +50,18 @@ return false;
 		
 		var flag = 0;
 		
-		if(document.form1.rename.value.length > 5){ // 名前の文字数のチェック
+		if(document.form1.rename.value.length > 10){ // 名前の文字数のチェック
 		
 			flag = 1;
 
-            window.alert("名前は5文字以内で入力してください");
+            window.alert("名前は10文字以内で入力してください");
 		
 		}
-		else if(document.form1.recontent.value.length > 500){ // 返答内容の文字数のチェック
+		else if(document.form1.recontent.value.length > 100){ // 返答内容の文字数のチェック
 		
 			flag = 1;
 
-            window.alert("返答内容は5文字以内で入力してください");
+            window.alert("返答内容は100文字以内で入力してください");
 		}
 		
 		// 設定終了

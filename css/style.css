@@ -267,6 +267,12 @@ footer .pr {display: block;}
 	vertical-align: text-top;
 }
 
+.about_me{
+	display: block;
+	font-size: 120%;
+	text-align: center;
+}
+
 /*スレッド一覧の表示方法
 --------------------------------------------------------------------------*/
 .thread_table{

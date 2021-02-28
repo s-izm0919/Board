@@ -104,41 +104,41 @@ return false;
 	function lengthcheck(){　//文字数チェックの関数
 		var flag2 = 0;
 		
-		if(document.form1.name.value.length > 5){	//名前の文字数チェック
+		if(document.form1.name.value.length > 10){	//名前の文字数チェック
 
 			flag2 = 1;
 
-			window.alert("名前は5文字以内で入力してください");	
+			window.alert("名前は10文字以内で入力してください");	
 
-		}else if(document.form1.title.value.length > 5){	//タイトルの文字数チェック
-
-			flag2 = 1;
-
-			window.alert("タイトルは5文字以内で入力してください");
-
-		}else if(document.form1.content.value.length > 5000){	//投稿内容の文字数チェック
+		}else if(document.form1.title.value.length > 30){	//タイトルの文字数チェック
 
 			flag2 = 1;
 
-			window.alert("投稿内容は5文字以内で入力してください")
+			window.alert("タイトルは30文字以内で入力してください");
 
-		}else if(document.form1.question.value.length > 5){		//質問内容の文字数チェック
+		}else if(document.form1.content.value.length > 300){	//投稿内容の文字数チェック
 
 			flag2 = 1;
 
-			window.alert("質問内容は5文字以内で入力してください")
+			window.alert("投稿内容は300文字以内で入力してください")
+
+		}else if(document.form1.question.value.length > 30){		//質問内容の文字数チェック
+
+			flag2 = 1;
+
+			window.alert("質問内容は30文字以内で入力してください")
 			
-		}else if(document.form1.choice1.value.length > 5){		//回答１の文字数チェック
+		}else if(document.form1.choice1.value.length > 20){		//回答１の文字数チェック
 
 			flag2 = 1;
 
-			window.alert("質問項目は5文字以内で入力してください")
+			window.alert("質問項目は20文字以内で入力してください")
 			
-		}else if(document.form1.choice2.value.length > 5){		//回答２の文字数チェック
+		}else if(document.form1.choice2.value.length > 20){		//回答２の文字数チェック
 
 			flag2 = 1;
 
-			window.alert("質問項目は5文字以内で入力してください")
+			window.alert("質問項目は20文字以内で入力してください")
 			
 		}
 
