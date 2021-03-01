@@ -44,6 +44,8 @@ return false;
 });
 });
 </script>
+<!--入力項目チェック用のスクリプト-->
+
 <script type="text/javascript"> 
 	function nullcheck(){
 		
@@ -102,6 +104,7 @@ return false;
 		}
 	
 	}
+	/*入力文字が既定文字数を超えていないかのチェック*/
 
 	function lengthcheck(){　//文字数チェックの関数
 		var flag2 = 0;
@@ -157,6 +160,8 @@ return false;
 	}
 </script>  
 
+<!-- 多重投稿禁止用に乱数を生成するスクリプト-->
+
 <script type="text/javascript">
     function getRandom(){
         let num = Math.floor(Math.random()*10000)+1;
@@ -165,8 +170,6 @@ return false;
 </script>
 	
 </head>
-
-
 
 <body>
 
