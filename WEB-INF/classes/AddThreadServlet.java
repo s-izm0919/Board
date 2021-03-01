@@ -66,6 +66,11 @@ public class AddThreadServlet extends HttpServlet {
 		OracleDBAccess odba = new OracleDBAccess();
 
 		String sort = req.getParameter("sort");
+		
+		if(sort == null){
+			sort = "1";
+		}
+		
 		String select_sql = cre.selectAll(sort);
 		
 		odba.selectDB(select_sql);
@@ -74,10 +79,6 @@ public class AddThreadServlet extends HttpServlet {
 		//ここから改ページを作成するプログラム
 
 		int showpages = 10; //一度に表示させたいページ数はここに設定する。
-
-		if(sort == null){
-			sort = "1";
-		}
 
 		int pages = database.size()/showpages;
 		if(database.size() %showpages !=0){
