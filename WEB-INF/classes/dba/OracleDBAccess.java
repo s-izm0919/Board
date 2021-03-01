@@ -93,6 +93,9 @@ public class OracleDBAccess{
 				if(oracle.size() < 2){
 					thbean = bean;
 				}
+				if(oracle.size() > 200){
+					break;
+				}
 
 				//この処理をループさせることで、Oracleからデータを一行抜く→UserBeanにデータを入れる→1行スクロールしてまた同じ処理をするを繰り返す。
 			}
@@ -155,6 +158,10 @@ public class OracleDBAccess{
 				resoracle.add(bean);
 
 				votingdata.add(rs.getInt(6));
+
+				if(resoracle.size() > 200){
+					break;
+				}
 
 				//この処理をループさせることで、Oracleからデータを一行抜く→UserBeanにデータを入れる→1行スクロールしてまた同じ処理をするを繰り返す。
 			}
