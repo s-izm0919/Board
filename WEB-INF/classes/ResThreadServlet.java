@@ -24,9 +24,9 @@ public class ResThreadServlet extends HttpServlet {
 	private ArrayList<Integer> votingdata = new ArrayList<Integer>();
 	
 
-	String id = null;
+	String id = null;	//th_idの初期値はnull
 
-	private String check="";
+	private String check="";	//多重投稿禁止用のプロパティ
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
@@ -35,31 +35,30 @@ public class ResThreadServlet extends HttpServlet {
 		//これを指定しないと文字化けする可能性がある
 		req.setCharacterEncoding("Windows-31J");
 
+		//POST要求によって送信されたパラメータを取得する
 		String checknumber = req.getParameter("checknumber");
 
 		id = req.getParameter("reid");
-
-		//POST要求によって送信されたパラメータを取得する
 		String name = req.getParameter("rename");
+
 		//nameが送信されていない場合は、自動的にNONAMEとなる
-		
 		if(name==""){
 			name=new String("NONAME");
 		}
 		
-		
 		String _content=req.getParameter("recontent");
+		//改行記号をhtml用の改行記号に変換する。
 		String content=_content.replaceAll("\n", "<br>");
+
+		//空文の場合は、自動的に投稿文はありませんとなる。
 
 		if(content==""){
 			content=new String("投稿文はありません。");
 		}
 		String voting = req.getParameter("revoting");
 
-		
-		if(check.equals(checknumber)){
-
-		}else{
+		//多重投稿禁止用のチェックプログラム
+		if(check.equals(checknumber)){}else{
 
 			CreateSQL cre = new CreateSQL();
 			String insert_sql = cre.insertResThread(id, name, content, voting);
@@ -74,11 +73,6 @@ public class ResThreadServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		req.setCharacterEncoding("Windows-31J");
-
-		String sort = req.getParameter("sort");
-		if(sort == null){
-			sort = "1";
-		}
         
         if(id == null){		
 			id = req.getParameter("id");
@@ -98,12 +92,15 @@ public class ResThreadServlet extends HttpServlet {
 
 		votingdata = odba.getVotingData();
 
+		//投票数を集計するプログラム
+
 		Stream<Integer> stream1 = votingdata.stream();
 		Stream<Integer> stream2 = votingdata.stream();
 
 		long agreement = stream1.filter(number -> number == 1).count();
 		long disagreement = stream2.filter(number -> number == 2).count();
 
+		//改ページを作成するプログラム
 		int pages = resdatabase.size()/10;
 		if(resdatabase.size() %10 !=0){
 			pages +=1;
@@ -136,20 +133,17 @@ public class ResThreadServlet extends HttpServlet {
 				break;
 			}
 		}
-
+		//改ページプログラムはここまで
 
 		req.setAttribute("agreement", agreement);
 		req.setAttribute("disagreement", disagreement);
 
-		//HttpServletRequestの実装クラスのインスタンスに
-		//usersという名前でデータを登録する
 		req.setAttribute("data",bean);
 		req.setAttribute("resdata",array);
 		req.setAttribute("id",id);
 		req.setAttribute("page",allpages);
 
-		req.setAttribute("sort",sort);
-
+		//idを初期化する。そうしないと複数投稿を受け付けなくなる。
 		id = null;
 		
 		//RequestDispatcherインターフェイスを実装するクラスの
