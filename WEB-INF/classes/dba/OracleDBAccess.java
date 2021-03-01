@@ -45,7 +45,7 @@ public class OracleDBAccess{
 			//Oracleに接続する
 			Connection cn=
 				DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
-				"info","pro");
+				"panda","passpanda");
 			
 			//select文
 			String _sql= sql;
@@ -72,6 +72,7 @@ public class OracleDBAccess{
 				String question=rs.getString(6);	//6列目のデータを取得
 				String choice1=rs.getString(7);	//7列目のデータを取得
 				String choice2=rs.getString(8);	//8列目のデータを取得
+
 				//UserBeanのsetterを利用
 				bean.setId(id);
                 bean.setName(name);
@@ -91,6 +92,9 @@ public class OracleDBAccess{
 
 				if(oracle.size() < 2){
 					thbean = bean;
+				}
+				if(oracle.size() > 200){
+					break;
 				}
 
 				//この処理をループさせることで、Oracleからデータを一行抜く→UserBeanにデータを入れる→1行スクロールしてまた同じ処理をするを繰り返す。
@@ -117,7 +121,7 @@ public class OracleDBAccess{
 			//Oracleに接続する
 			Connection cn=
 				DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
-				"info","pro");
+				"panda","passpanda");
 			
 			//select文
 			String _sql= sql;
@@ -155,6 +159,10 @@ public class OracleDBAccess{
 
 				votingdata.add(rs.getInt(6));
 
+				if(resoracle.size() > 200){
+					break;
+				}
+
 				//この処理をループさせることで、Oracleからデータを一行抜く→UserBeanにデータを入れる→1行スクロールしてまた同じ処理をするを繰り返す。
 			}
 			//Oracleから切断する
@@ -181,7 +189,7 @@ public class OracleDBAccess{
 			Connection cn=
 				DriverManager.getConnection(
 					"jdbc:oracle:thin:@localhost:1521:orcl",
-					"info","pro");
+					"panda","passpanda");
 			
 			//自動コミットをOFFにする
 			cn.setAutoCommit(false);
@@ -213,3 +221,5 @@ public class OracleDBAccess{
 
     }
 }
+
+
