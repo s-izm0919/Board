@@ -45,6 +45,8 @@ return false;
 });
 </script>
 
+<!--入力された項目に不備がないかをチェックするスクリプト-->
+
 <script type="text/javascript"> 
 	function lengthcheck(){
 		
@@ -81,15 +83,16 @@ return false;
 
 </script>
 
+<!--多重投稿禁止用の乱数生成のスクリプト-->
+
 <script type="text/javascript">
     function getRandom(){
         let num = Math.floor(Math.random()*10000)+1;
         document.getElementById('formnumber').value = num;
     }
 </script>
+
 </head>
-
-
 
 <body>
 
@@ -123,6 +126,7 @@ return false;
 			投稿者の質問：<c:out value="${data.question}"/><br>
 			選択１：<c:out value="${data.choice1}"/>&emsp;&emsp;選択２：<c:out value="${data.choice2}"/><br>
 	</div>
+
 <h3>現在の集計結果</h3>
     投稿された質問：${data.question}<br>
 	${data.choice1}：${agreement}<br>
@@ -132,7 +136,7 @@ return false;
     </div>
     <br>
 
-	
+    <!--集計結果をグラフ化するためのスクリプト-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 	<script>
@@ -193,6 +197,7 @@ return false;
 	<input type='radio' name='revoting' value='2' >${data.choice2}<br>
 	<input type='submit' value='登録'>
 	</form>
+
     <br>
 
     <h3>投稿された返信スレッド</h3>
@@ -210,10 +215,7 @@ return false;
 			<a href="resthread?page=${page}&id=${id}">${page}</a>
 			</td>
 	</c:forEach>
-
-
-
-
+    
 </section>
         
 </body>

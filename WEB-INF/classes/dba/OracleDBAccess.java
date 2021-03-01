@@ -45,7 +45,7 @@ public class OracleDBAccess{
 			//Oracleに接続する
 			Connection cn=
 				DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
-				"info","pro");
+				"panda","passpanda");
 			
 			//select文
 			String _sql= sql;
@@ -118,7 +118,7 @@ public class OracleDBAccess{
 			//Oracleに接続する
 			Connection cn=
 				DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
-				"info","pro");
+				"panda","passpanda");
 			
 			//select文
 			String _sql= sql;
@@ -182,7 +182,7 @@ public class OracleDBAccess{
 			Connection cn=
 				DriverManager.getConnection(
 					"jdbc:oracle:thin:@localhost:1521:orcl",
-					"info","pro");
+					"panda","passpanda");
 			
 			//自動コミットをOFFにする
 			cn.setAutoCommit(false);

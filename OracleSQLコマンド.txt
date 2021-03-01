@@ -1,0 +1,69 @@
+//BOARD_THREADのid管理用のシーケンス
+
+CREATE SEQUENCE S_ORD_BOARD_THREAD
+START WITH 1
+INCREMENT BY 1;
+
+//BOARD_RESPONSEのid管理用のシーケンス
+
+CREATE SEQUENCE S_ORD_BOARD_RESPONSE
+START WITH 1
+INCREMENT BY 1;
+
+//BOARD_THREAD作成SQL
+
+CREATE TABLE BOARD_THREAD
+(
+	 th_id NUMBER(10) CONSTRAINT pk_th_id PRIMARY KEY,
+	 th_name VARCHAR2(20) NOT NULL,
+	 th_content VARCHAR2(600) NOT NULL,
+	 th_title VARCHAR2(100),
+	 th_time DATE DEFAULT SYSDATE,
+	 th_question VARCHAR2(60) NOT NULL,
+	 th_choice1 VARCHAR2(40) NOT NULL,
+ 	 th_choice2 VARCHAR2(40) NOT NULL	 
+);
+
+//BOARD_RESPONSE作成SQL
+
+CREATE TABLE BOARD_RESPONSE
+(
+	 th_id NUMBER(10) CONSTRAINT fk_th_id REFERENCES BOARD_THREAD(th_id),
+	 re_id NUMBER(10) CONSTRAINT pk_re_id PRIMARY KEY,
+	 re_name VARCHAR2(20) NOT NULL,
+	 re_content VARCHAR2(600) NOT NULL,
+	 re_time DATE DEFAULT SYSDATE,
+ 	 re_voting NUMBER(2) CONSTRAINT ck_re_voting CHECK(re_voting=1 OR re_voting=2) 
+);
+
+//ダミーデータ挿入用（直入力)
+
+INSERT INTO BOARD_THREAD(th_id, th_name, th_content, th_title, th_question, th_choice1, th_choice2)
+VALUES(S_ORD_BOARD_THREAD.NEXTVAL, '&name', '&content', '&title', '&question', '&choice1', '&choice2');
+
+INSERT INTO BOARD_RESPONSE(th_id, re_id, re_name, re_content, re_voting)
+VALUES(&prime_id, S_ORD_BOARD_RESPONSE.NEXTVAL, '&name', '&content', &re_voting);
+
+//ダミーデータ挿入用（初期データ）
+
+
+
+//管理ユーザーの作成
+//ユーザー名：panda
+//パスワード：passpanda
+
+CREATE USER panda
+IDENTIFIED BY "passpanda"
+DEFAULT TABLESPACE users
+TEMPORARY TABLESPACE temp
+QUOTA 500M ON users
+profile default;
+
+//システム権限の付与
+GRANT 
+CREATE SESSION,
+CREATE TABLE,
+CREATE VIEW,
+CREATE SEQUENCE
+TO panda;
+
