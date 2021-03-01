@@ -93,7 +93,7 @@ public class OracleDBAccess{
 				if(oracle.size() < 2){
 					thbean = bean;
 				}
-				if(oracle.size() > 200){
+				if(oracle.size() >= 200){
 					break;
 				}
 
@@ -159,7 +159,7 @@ public class OracleDBAccess{
 
 				votingdata.add(rs.getInt(6));
 
-				if(resoracle.size() > 200){
+				if(resoracle.size() >= 200){
 					break;
 				}
 

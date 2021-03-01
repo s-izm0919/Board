@@ -9,7 +9,7 @@ public class CreateSQL{
             break;
             
             case "2":
-            sql = "SELECT * FROM BOARD_THREAD ORDER BY th_time ASC";
+            sql = "SELECT * FROM(SELECT * FROM BOARD_THREAD ORDER BY th_time desc FETCH FIRST 200 ROWS ONLY) ORDER BY th_time ASC";
             break;
             
             case "3":
