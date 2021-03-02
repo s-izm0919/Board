@@ -9,7 +9,7 @@ public class CreateSQL{
             break;
             
             case "2":
-            sql = "SELECT * FROM BOARD_THREAD ORDER BY th_time ASC";
+            sql = "SELECT * FROM(SELECT * FROM BOARD_THREAD ORDER BY th_time desc FETCH FIRST 200 ROWS ONLY) ORDER BY th_time ASC";
             break;
             
             case "3":
@@ -21,7 +21,7 @@ public class CreateSQL{
     }
 
     public String selectResAll(String th_id){
-        String sql = "SELECT * FROM BOARD_RESPONSE WHERE th_id = "+th_id+" ORDER BY re_time";
+        String sql = "SELECT * FROM BOARD_RESPONSE WHERE th_id = "+th_id+" ORDER BY re_time DESC";
         return sql;
     }
 

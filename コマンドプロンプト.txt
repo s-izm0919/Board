@@ -1,0 +1,20 @@
+ojdbc7.jarはtomcat8.5内のlibフォルダに入れてください。
+他のところからも参照できるはずですが、そうしないとうまくjarファイルを参照できないバグが残っています。
+なんかtomcatにエラーメッセージっぽいものがでますが、気にしなくていいです。
+
+set classpath=.;C:\tomcat8.5\lib\servlet-api.jar;C:\tomcat8.5\lib\ojdbc7.jar
+
+
+
+
+
+
+
+
+
+
+//なんかいろいろテストする
+
+SELECT * 
+FROM(SELECT * FROM BOARD_THREAD ORDER BY th_time desc FETCH FIRST 200 ROWS ONLY)
+ORDER BY th_time ASC; 

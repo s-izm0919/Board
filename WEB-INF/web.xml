@@ -46,6 +46,15 @@
 		<url-pattern>/resthread</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>postthread</servlet-name>
+		<jsp-file>/postthread.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>postthread</servlet-name>
+		<url-pattern>/postthread</url-pattern>
+	</servlet-mapping>
+
 
 
 </web-app>

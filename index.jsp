@@ -48,14 +48,16 @@ return false;
 
 <header>
 
-<h1 id="logo"><a href="postthread.jsp"><img src="images/logo1.png" alt="Sample Site"></a></h1>
+<h1 id="logo"><a href="postthread"><img src="images/logo1.png" alt="投稿画面"></a></h1>
 <!--PC用（801px以上端末）メニュー-->
 <nav id="menubar">
 <ul>
-<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="当サイトについて"></a></li>
-<li id="menu2"><a href="#gallery"><img src="images/menu_gallery.png" alt="ギャラリー"></a></li>
+<li id="menu1"><a href="addthread"><img src="images/menu_about1.png" alt="閲覧画面"></a></li>
+<li id="menu2"><a href="index"><img src="images/menu_about.png" alt="トップに戻る"></a></li>
+<!--
 <li id="menu3"><a href="#link"><img src="images/menu_link.png" alt="リンク"></a></li>
 <li id="menu4"><a href="#"><img src="images/menu_instagram.png" alt="インスタグラム"></a></li>
+-->
 </ul>
 </nav>
 
@@ -64,7 +66,40 @@ return false;
 
 <section>
     
-<h2>Read Me<span></span></h2>
+<h2>About Me<span></span></h2>
+
+<div class="about_me">
+この掲示板は、あなたがいま抱えている<br>
+
+<span style="color:red;font-size:140%;">
+
+「どちらがいいか迷ってしまう。」<br>
+
+「迷っているけど決めることができない」<br>
+
+</span>
+
+といった悩みを解決してくれます。<br><br>
+
+使い方は簡単です。<br>
+
+あなたがいまどちらにしようか悩んでいる２つの選択を<br>
+
+相談内容と一緒に書き込むだけで<br>
+
+多くの人が、その悩みに対してアドバイスをしてくれるでしょう。<br>
+
+そして、あなたにどちらの選択をすればいいかを教えてくれます。<br>
+
+難しく考える必要はありません。まずは相談してみましょう。<br><br>
+
+<a href="postthread"><img src="images/post_button.gif"></a>
+
+<br><br>
+
+<a href="addthread"><img src="images/list_button.gif"></a>
+
+</div>
 	
 </section>  
 
