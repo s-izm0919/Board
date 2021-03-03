@@ -199,7 +199,7 @@ return false;
 	<form method='post' action='addthread' name="form1" onSubmit="return nullcheck()">
 	<input id="formnumber" type="hidden" name="checknumber" value="">
 	名前:<br>
-	<input type='text' name='name' placeholder="NONAME"><br>
+	<input type='text' name='name' placeholder="10文字以内"><br>
 	タイトル:<br>
 	<input type='text' name='title' placeholder="titleを記入してください"><br>
 	投稿内容：<br>
