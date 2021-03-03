@@ -207,7 +207,7 @@ return false;
 	質問内容：<br>
 	<input type='text' name='question'placeholder="30文字以内記入"><br>
 	選択1：  <input type='text'name='choice1' placeholder="20文字以内記入"> <br>      
-	選択2：  <input type='text' name='choice2' placeholder="20文字以内記入><br>
+	選択2：  <input type='text' name='choice2' placeholder="20文字以内記入"><br>
 	<input type='submit' value='登録'>
     </form>
 	
