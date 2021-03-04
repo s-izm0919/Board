@@ -188,10 +188,10 @@ return false;
     <input id='formnumber' type='hidden' name='checknumber' value="">
     
     <input type='hidden' name='reid' value='${data.id}'>
-	ユーザー名:<br>
-	<input type='text' name='rename' placeholder="NONAME"><br>
-	投稿文：<br>
-	<textarea name='recontent' placeholder="こちらに投稿文を記入" cols="50" rows="5"></textarea><br>
+	名前:<br>
+	<input type='text' name='rename' placeholder="10文字以内記入"><br>
+	投稿内容：<br>
+	<textarea name='recontent' placeholder="300文字以内記入" cols="50" rows="5"></textarea><br>
 	あなたの意見は？:<br>
 	<input type='radio' name='revoting' value='1' checked="checked">${data.choice1}<br>
 	<input type='radio' name='revoting' value='2' >${data.choice2}<br>

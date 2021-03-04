@@ -199,6 +199,7 @@ return false;
 	<form method='post' action='addthread' name="form1" onSubmit="return nullcheck()">
 	<input id="formnumber" type="hidden" name="checknumber" value="">
 	名前:<br>
+<<<<<<< HEAD
 	<input type='text' name='name' placeholder="10文字以内記入"><br>
 	タイトル:<br>
 	<input type='text' name='title' placeholder="30文字以内記入"><br>
@@ -208,6 +209,17 @@ return false;
 	<input type='text' name='question'placeholder="30文字以内記入"><br>
 	選択1：  <input type='text'name='choice1' placeholder="20文字以内記入"> <br>      
 	選択2：  <input type='text' name='choice2' placeholder="20文字以内記入"><br>
+=======
+	<input type='text' name='name' placeholder="10文字以内記入" pattern=".*\S+.*" required><br>
+	タイトル:<br>
+	<input type='text' name='title' placeholder="30文字以内記入" pattern=".*\S+.*" required><br>
+	投稿内容：<br>
+	<textarea name='content' placeholder="300文字以内記入" cols="50" rows="5" pattern=".*\S+.*" required></textarea><br>
+	質問内容：<br>
+	<input type='text' name='question'placeholder="30文字以内記入" pattern=".*\S+.*" required><br>
+	選択1：  <input type='text'name='choice1' placeholder="20文字以内記入" pattern=".*\S+.*" required> <br>
+    選択2：  <input type='text' name='choice2' placeholder="20文字以内記入" pattern=".*\S+.*" required><br>
+>>>>>>> main
 	<input type='submit' value='登録'>
     </form>
 	
