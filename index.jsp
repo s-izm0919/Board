@@ -8,7 +8,7 @@
 <head>
 <meta charset="SJIS">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>選択掲示板topページ</title>
+<title>選択掲示板</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="ここにサイト説明を入れます">
 <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
@@ -90,8 +90,6 @@ return false;
 多くの人が、その悩みに対してアドバイスをしてくれるでしょう。<br>
 
 そして、あなたにどちらの選択をすればいいかを教えてくれます。<br>
-
-難しく考える必要はありません。まずは相談してみましょう。<br><br>
 
 <a href="postthread"><img src="images/post_button.gif"></a>
 
